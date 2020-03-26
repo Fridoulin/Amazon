@@ -81,7 +81,7 @@ public class Shop {
     public Shop(){
         checkIfArtikelExists();
     }
-
+    List<Artikel> alleArtikel = createArticlesForShop();
     private List<Artikel> createArticlesForShop() {
         List<Artikel> artikels = new ArrayList<>();
         artikels.add(new Bier("Zipfer", 3.50, 1, "Märzen", 214.9, 1, false, false));
@@ -115,10 +115,21 @@ public class Shop {
         if(Files.notExists(Paths.get("Artikels.bin"))){
             createArtikel();
             openArtikel("Artikels.bin");
+            writeArtikelInFile(alleArtikel);
         }
         else {
             openArtikel("Artikels.bin");
         }
+    }
+    private void writeArtikelInFile(List<Artikel> artikel){
+            try(FileOutputStream fos = new FileOutputStream("Artikels.bin");
+                ObjectOutputStream oos = new ObjectOutputStream(fos))
+            {
+                oos.writeObject(artikel);
+            }
+            catch (IOException e){
+                System.out.println("Serialisierung hat nicht funktioniert");
+            }
     }
     public void createArtikel(){
         try {
