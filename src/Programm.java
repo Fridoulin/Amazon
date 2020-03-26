@@ -1,5 +1,9 @@
 import models.Shop;
 import models.*;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.lang.*;
 import static java.lang.System.*;
@@ -16,15 +20,10 @@ public class Programm {
             //1. Benutzer anlegen
         //2. Switch shop öfffnen, warenkorb öffnen, programm beenden,
         char wahlSuchen;
-
+        String Dateiname="Artikels.bin";
 
         List <Artikel> gefundeneArtikel;
         String _artikelName;
-
-
-
-
-
 
        do {
            out.println("Was wollen Sie machen?");
@@ -55,7 +54,7 @@ public class Programm {
                    }
                    break;
                case 'a':
-                   out.println(shop);
+                   Shop.checkIfArtikelExists(Dateiname);
                    break;
                case'h':
                    out.println("Welche Produkt-ID wollen Sie hinzufügen?");

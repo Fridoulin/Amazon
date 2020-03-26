@@ -79,10 +79,11 @@ public class Shop {
         this._artikels = createArticlesForShop();
     }*/
     public Shop(){
-        checkIfArtikelExists();
+        checkIfArtikelExists(artikelDatei);
     }
-    List<Artikel> alleArtikel = createArticlesForShop();
-    private List<Artikel> createArticlesForShop() {
+    static String artikelDatei = "Artikels.bin";
+    static List<Artikel> alleArtikel = createArticlesForShop();
+    private static List<Artikel>  createArticlesForShop() {
         List<Artikel> artikels = new ArrayList<>();
         artikels.add(new Bier("Zipfer", 3.50, 1, "Märzen", 214.9, 1, false, false));
         artikels.add(new Bier("Stiegl", 3.80, 2, "Goldbräu", 243.2, 1, false, false));
@@ -111,34 +112,53 @@ public class Shop {
         }
         return foundArtikel;
     }
-    private void checkIfArtikelExists (){
-        if(Files.notExists(Paths.get("Artikels.bin"))){
+    public static void checkIfArtikelExists (String Dateiname){
+        if(Files.notExists(Paths.get(Dateiname))){
             createArtikel();
-            openArtikel("Artikels.bin");
-            writeArtikelInFile(alleArtikel);
+            openArtikel(Dateiname);
+            writeArtikelsInFile(alleArtikel, artikelDatei);
+            loadArtikel(Dateiname);
         }
         else {
-            openArtikel("Artikels.bin");
+            openArtikel(Dateiname);
+            loadArtikel(Dateiname);
         }
     }
-    private void writeArtikelInFile(List<Artikel> artikel){
-            try(FileOutputStream fos = new FileOutputStream("Artikels.bin");
+    private static void writeArtikelsInFile(List<Artikel> artikel, String dateiName){
+            try(FileOutputStream fos = new FileOutputStream(dateiName);
                 ObjectOutputStream oos = new ObjectOutputStream(fos))
             {
                 oos.writeObject(artikel);
             }
             catch (IOException e){
                 System.out.println("Fehler!!!");
+                loadArtikel(dateiName);
             }
     }
-    public void createArtikel(){
+    public static List<Artikel> loadArtikel(String filename){
+        try(FileInputStream fis = new FileInputStream(filename);
+            ObjectInputStream ois = new ObjectInputStream(fis)) {
+
+            return (List<Artikel>)ois.readObject();
+        }
+
+        catch (IOException e){
+            System.out.println("Laden hat nicht funktioniert!");
+        }
+        catch(ClassNotFoundException e){
+            System.out.println("Klasse existiert nicht!");
+        }
+        return null;
+    }
+
+    public static void createArtikel(){
         try {
             Files.createFile(Paths.get("Artikels.bin"));
         }catch (IOException e){
             System.out.println("IOException");
         }
     }
-    public BufferedWriter openArtikel(String filename){
+    public static BufferedWriter openArtikel(String filename){
         try{
             return Files.newBufferedWriter(Paths.get(filename),StandardOpenOption.APPEND);
         }catch (IOException e){
@@ -148,7 +168,7 @@ public class Shop {
     }
     public void printArtikels(){
         try {
-            String content = Files.readString(Paths.get("Artikels.bin"));
+            String content = Files.readString(Paths.get(artikelDatei));
             System.out.println(content);
         }catch(IOException e){
             System.out.println("Dateiinhalt konnte nicht gelesen werden!");
