@@ -128,7 +128,7 @@ public class Shop {
                 oos.writeObject(artikel);
             }
             catch (IOException e){
-                System.out.println("Serialisierung hat nicht funktioniert");
+                System.out.println("Fehler!!!");
             }
     }
     public void createArtikel(){
