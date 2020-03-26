@@ -7,6 +7,7 @@ import static java.lang.System.*;
 public class Programm {
 
     public static void main(String[] args) {
+
         Scanner reader = new Scanner(System.in);
         char wahl='a';
         Shop shop = new Shop();
@@ -15,10 +16,13 @@ public class Programm {
             //1. Benutzer anlegen
         //2. Switch shop öfffnen, warenkorb öffnen, programm beenden,
         char wahlSuchen;
-        Shop findByName = new Shop();
+
 
         List <Artikel> gefundeneArtikel;
         String _artikelName;
+
+
+
 
 
 

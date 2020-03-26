@@ -1,7 +1,10 @@
 package models;
 
+import java.nio.file.Files;
 import java.util.*;
 import java.util.List;
+import java.io.*;
+import java.nio.file.*;
 import models.*;
 
 public class Shop {
@@ -72,8 +75,11 @@ public class Shop {
         switch(wahl)
 
     }*/
-    public Shop(){
+    /*public Shop(){
         this._artikels = createArticlesForShop();
+    }*/
+    public Shop(){
+        checkIfArtikelExists();
     }
 
     private List<Artikel> createArticlesForShop() {
@@ -105,6 +111,39 @@ public class Shop {
         }
         return foundArtikel;
     }
+    private void checkIfArtikelExists (){
+        if(Files.notExists(Paths.get("Artikels.bin"))){
+            createArtikel();
+            openArtikel("Artikels.bin");
+        }
+        else {
+            openArtikel("Artikels.bin");
+        }
+    }
+    public void createArtikel(){
+        try {
+            Files.createFile(Paths.get("Artikels.bin"));
+        }catch (IOException e){
+            System.out.println("IOException");
+        }
+    }
+    public BufferedWriter openArtikel(String filename){
+        try{
+            return Files.newBufferedWriter(Paths.get(filename),StandardOpenOption.APPEND);
+        }catch (IOException e){
+            System.out.println("IOException");
+        }
+        return null;
+    }
+    public void printArtikels(){
+        try {
+            String content = Files.readString(Paths.get("Artikels.bin"));
+            System.out.println(content);
+        }catch(IOException e){
+            System.out.println("Dateiinhalt konnte nicht gelesen werden!");
+        }
+    }
+
     /*public String Artikelausgeben(int idnummer){
         String s="";
         for(Artikel a : this._artikels){
