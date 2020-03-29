@@ -55,6 +55,8 @@ public class Programm {
                    break;
                case 'a':
                    Shop.checkIfArtikelExists(Dateiname);
+                    //Funktioniert nicht, habe den Fehler nicht gefunden Exception writeArtikelsInFile "Fehler!!!"
+                    // ausgelöst?
                    break;
                case'h':
                    out.println("Welche Produkt-ID wollen Sie hinzufügen?");

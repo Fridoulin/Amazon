@@ -79,7 +79,7 @@ public class Shop {
         this._artikels = createArticlesForShop();
     }*/
     public Shop(){
-        checkIfArtikelExists(artikelDatei);
+
     }
     static String artikelDatei = "Artikels.bin";
     static List<Artikel> alleArtikel = createArticlesForShop();
@@ -115,16 +115,15 @@ public class Shop {
     public static void checkIfArtikelExists (String Dateiname){
         if(Files.notExists(Paths.get(Dateiname))){
             createArtikel();
-            openArtikel(Dateiname);
             writeArtikelsInFile(alleArtikel, artikelDatei);
-            loadArtikel(Dateiname);
+            printContent(Dateiname);
         }
         else {
-            openArtikel(Dateiname);
             loadArtikel(Dateiname);
+            printContent(Dateiname);
         }
     }
-    private static void writeArtikelsInFile(List<Artikel> artikel, String dateiName){
+    public static void writeArtikelsInFile(List<Artikel> artikel, String dateiName){
             try(FileOutputStream fos = new FileOutputStream(dateiName);
                 ObjectOutputStream oos = new ObjectOutputStream(fos))
             {
@@ -138,7 +137,6 @@ public class Shop {
     public static List<Artikel> loadArtikel(String filename){
         try(FileInputStream fis = new FileInputStream(filename);
             ObjectInputStream ois = new ObjectInputStream(fis)) {
-
             return (List<Artikel>)ois.readObject();
         }
 
@@ -151,6 +149,14 @@ public class Shop {
         return null;
     }
 
+    public static void printContent(String filename){
+        try {
+            String content = Files.readString(Paths.get(filename));
+            System.out.println(content);
+        }catch (IOException e){
+            System.out.println("Fehler: Text konnte nicht in der Datei abgeleget werden!");
+        }
+    }
     public static void createArtikel(){
         try {
             Files.createFile(Paths.get("Artikels.bin"));
@@ -158,14 +164,8 @@ public class Shop {
             System.out.println("IOException");
         }
     }
-    public static BufferedWriter openArtikel(String filename){
-        try{
-            return Files.newBufferedWriter(Paths.get(filename),StandardOpenOption.APPEND);
-        }catch (IOException e){
-            System.out.println("IOException");
-        }
-        return null;
-    }
+
+
     public void printArtikels(){
         try {
             String content = Files.readString(Paths.get(artikelDatei));
