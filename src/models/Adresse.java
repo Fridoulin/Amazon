@@ -10,7 +10,7 @@ public class Adresse implements Serializable {
     private String _land;
 
 
-    public String straßennr(){
+    public String getstraßennr(){
         return _straßennr;
     }
     public void setstraßennr(String straßennr){
@@ -52,6 +52,6 @@ public class Adresse implements Serializable {
     }
     @Override
     public String toString(){
-        return super.toString() + "PLZ: " + this.getPlz() + "Straße: " + this.getStraße();
+        return /*super.toString() +*/ "PLZ: " + this.getPlz() + " | " + "Stadt: " + this.getstadt() + " | " + "Straße: " + this.getStraße() + " | " + "Straßennummer: " +this.getstraßennr();
     }
 }

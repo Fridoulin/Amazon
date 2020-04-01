@@ -10,12 +10,17 @@ import static java.lang.System.*;
 
 public class Programm implements Serializable {
 
+
+    static Kunde kunde = new Kunde();
+    static Adresse KundenAdresse = new Adresse();
     static Kunde KundeFromFile;
-    static String KundenDatei = "Kunde.bin";
     static Scanner reader = new Scanner(System.in);
     public static void main(String[] args) {
-
-
+        try {
+            Files.delete(Paths.get("Kunde.bin"));
+        }catch (IOException e){
+            System.out.println("Datei Kunde.bin hat nicht existiert");
+        }
         char wahl = 'a';
         Shop shop = new Shop();
         Einkaufswagen ekw = new Einkaufswagen();
@@ -35,6 +40,7 @@ public class Programm implements Serializable {
         writeKundeInFile();
 
 
+        boolean bestellt=false;
         do {
             out.println("Was wollen Sie machen?");
             out.println("e...Programm beenden");
@@ -89,55 +95,33 @@ public class Programm implements Serializable {
                     break;
                 case'k':
                     KundeFromFile = loadKunde();
-                    System.out.println(KundeFromFile);
+                    System.out.println(KundeFromFile.toString());
                     System.out.println(KundeFromFile.getAdressen());
                     break;
                 case 'z':
-                    String entscheidung, Vorname, Nachname, Plz, Straße, Straßennr, Stadt, Land;
-                    Kunde kunde = new Kunde();
-                    Adresse adresse1 = new Adresse();
-                    out.println("Vorname: ");
-                    Vorname = reader.next();
-                    kunde.setVorname(Vorname);
-                    out.println("Nachname: ");
-                    Nachname = reader.next();
-                    kunde.set_nachname(Nachname);
-                    out.println("Plz: ");
-                    Plz = reader.next();
-                    adresse1.setPlz(Plz);
-                    out.println("Straße: ");
-                    Straße = reader.next();
-                    adresse1.setStraße(Straße);
-                    out.println("Straßennr: ");
-                    Straßennr = reader.next();
-                    adresse1.setstraßennr(Straßennr);
-                    out.println("Stadt: ");
-                    Stadt = reader.next();
-                    adresse1.setStadt(Stadt);
-                    out.println("Land: ");
-                    Land = reader.next();
-                    adresse1.setLand(Land);
-                    kunde.addAdrssen(adresse1);
-                    out.println();
+                    KundeFromFile = loadKunde();
+                    System.out.println(KundeFromFile.toString());
+                    System.out.println(KundeFromFile.getAdressen());
+                    String entscheidung;
                     out.print(shop.getBasket().toString());
                     out.println("Sind Sie sicher, dass sie bestellen wollen?[j,n]");
                     entscheidung = reader.next();
                     if (entscheidung.toLowerCase().equals("j")) {
-                        out.println("Bestellung aufgegeben!");
-                        //Bestätigungsemail senden
-                        Email email = new Email();
-                        //weiter?
+                        out.println("Bestellung erfolgreich aufgegeben!");
+                        bestellt=true;
+
                     } else {
                         out.println("Bestellung nicht aufgegeben!");
+
                     }
+
 
                     break;
             }
-        } while (wahl != 'e');
+        } while (wahl != 'e'&&bestellt==false);
         out.println("Programm beendet!");
     }
-    static Kunde kunde = new Kunde();
-    static Adresse KundenAdresse = new Adresse();
+
     public static void Kundeneingebenlassen() {
         System.out.println("Vorname: ");
         kunde.setVorname(reader.nextLine());
@@ -162,7 +146,7 @@ public class Programm implements Serializable {
     }
     public static void writeKundeInFile(){
         //Serialize
-        try(FileOutputStream fos = new FileOutputStream(KundenDatei);
+        try(FileOutputStream fos = new FileOutputStream("Kunde.bin");
             ObjectOutputStream oos = new ObjectOutputStream(fos))
         {
             oos.writeObject(kunde);
@@ -175,7 +159,7 @@ public class Programm implements Serializable {
     }
     public static Kunde loadKunde(){
         //Deserialize
-        try(FileInputStream fis = new FileInputStream(KundenDatei);
+        try(FileInputStream fis = new FileInputStream("Kunde.bin");
             ObjectInputStream ois = new ObjectInputStream(fis))
         {
 
@@ -189,6 +173,4 @@ public class Programm implements Serializable {
         }
         return null;
     }
-
-
 }

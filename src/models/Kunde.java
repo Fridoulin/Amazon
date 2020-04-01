@@ -43,4 +43,8 @@ public class Kunde implements Serializable {
             return false;
         }
     }
+    @Override
+    public String toString(){
+        return this.getVorname() + " " + this.get_nachname();
+    }
 }
