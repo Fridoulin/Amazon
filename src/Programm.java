@@ -1,6 +1,7 @@
 import models.Shop;
 import models.*;
 
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -8,7 +9,7 @@ import java.util.*;
 import java.lang.*;
 import static java.lang.System.*;
 
-public class Programm {
+public class Programm implements Serializable {
 
     public static void main(String[] args) {
 
@@ -54,7 +55,7 @@ public class Programm {
                    }
                    break;
                case 'a':
-                   Shop.checkIfArtikelExists(Dateiname);
+                   Shop.checkIfArtikelExists();
                     //Funktioniert nicht, habe den Fehler nicht gefunden Exception writeArtikelsInFile "Fehler!!!"
                     // ausgelöst?
                    break;

@@ -5,12 +5,11 @@ import java.util.*;
 import java.util.List;
 import java.io.*;
 import java.nio.file.*;
-import models.*;
 
-public class Shop {
+public class Shop implements Serializable{
 
     private Einkaufswagen _basket = new Einkaufswagen();
-    private List<Artikel> _artikels = new ArrayList<>();
+    private static List<Artikel> _artikels = createArticlesForShop();
     private List<Artikel> _hinzugefügteArtikel = new ArrayList<>();
     //private List<Artikel> _waren = new ArrayList<>();
     public List<Artikel> getArtikel() {
@@ -32,14 +31,14 @@ public class Shop {
         for(Einkaufswagenartikel a:_basket.getEinkaufswagen()){
             if(a.getArtikel().getId()==(id)){
                 //for(int i = 0; i < _basket.getEinkaufswagen().size(); i++){
-                  //  Einkaufswagenartikel ew = _basket.getEinkaufswagen().get(i);
+                //  Einkaufswagenartikel ew = _basket.getEinkaufswagen().get(i);
 
-                    if(a.getAnzahl() - anzahl > 0) {
-                        a.setAnzahl(a.getAnzahl() - anzahl);
-                    }
-                    else{
-                        _basket.removeEinkaufswagenartikel(a);
-                    }
+                if(a.getAnzahl() - anzahl > 0) {
+                    a.setAnzahl(a.getAnzahl() - anzahl);
+                }
+                else{
+                    _basket.removeEinkaufswagenartikel(a);
+                }
 
             }
         }
@@ -82,7 +81,7 @@ public class Shop {
 
     }
     static String artikelDatei = "Artikels.bin";
-    static List<Artikel> alleArtikel = createArticlesForShop();
+
     private static List<Artikel>  createArticlesForShop() {
         List<Artikel> artikels = new ArrayList<>();
         artikels.add(new Bier("Zipfer", 3.50, 1, "Märzen", 214.9, 1, false, false));
@@ -112,30 +111,40 @@ public class Shop {
         }
         return foundArtikel;
     }
-    public static void checkIfArtikelExists (String Dateiname){
-        if(Files.notExists(Paths.get(Dateiname))){
-            createArtikel();
-            writeArtikelsInFile(alleArtikel, artikelDatei);
-            printContent(Dateiname);
+    public static void checkIfArtikelExists (){
+        List<Artikel> ArtikelFromFile;
+        if(Files.notExists(Paths.get(artikelDatei))){
+            createArtikelDatei();
+            writeArtikelsInFile();
+            ArtikelFromFile = loadArtikel();
+            for(int i=0;i<ArtikelFromFile.size();i++){
+                System.out.println(ArtikelFromFile.get(i));
+            }
         }
         else {
-            loadArtikel(Dateiname);
-            printContent(Dateiname);
+            ArtikelFromFile= loadArtikel();
+            for(int i=0;i<ArtikelFromFile.size();i++){
+                System.out.println(ArtikelFromFile.get(i));
+            }
         }
     }
-    public static void writeArtikelsInFile(List<Artikel> artikel, String dateiName){
-            try(FileOutputStream fos = new FileOutputStream(dateiName);
-                ObjectOutputStream oos = new ObjectOutputStream(fos))
-            {
-                oos.writeObject(artikel);
-            }
-            catch (IOException e){
-                System.out.println("Serialisierung hat nicht funktioniert");
-                loadArtikel(dateiName);
-            }
+
+    public static void writeArtikelsInFile(){
+        //Serialize
+        try(FileOutputStream fos = new FileOutputStream(artikelDatei);
+            ObjectOutputStream oos = new ObjectOutputStream(fos))
+        {
+            oos.writeObject(_artikels);
+        }
+        catch (IOException e){
+            System.out.println("Serialisierung hat nicht funktioniert");
+
+        }
     }
-    public static List<Artikel> loadArtikel(String filename){
-        try(FileInputStream fis = new FileInputStream(filename);
+
+    public static List<Artikel> loadArtikel(){
+        //deserialize
+        try(FileInputStream fis = new FileInputStream(artikelDatei);
             ObjectInputStream ois = new ObjectInputStream(fis)) {
             return (List<Artikel>)ois.readObject();
         }
@@ -149,31 +158,36 @@ public class Shop {
         return null;
     }
 
-    public static void printContent(String filename){
+    public static void printArtikels(){
         try {
-            String content = Files.readString(Paths.get(filename));
+            String content = Files.readString(Paths.get(artikelDatei));
             System.out.println(content);
         }catch (IOException e){
             System.out.println("Fehler: Text konnte nicht in der Datei abgeleget werden!");
         }
     }
-    public static void createArtikel(){
+    // besseren Methodennamen verwenden
+    public static void createArtikelDatei(){
         try {
             Files.createFile(Paths.get("Artikels.bin"));
         }catch (IOException e){
-            System.out.println("IOException");
+            // sinnvolle Fehlermeldung angeben
+            System.out.println("Artikels.bin konnte nicht erzeugt werden");
         }
     }
 
 
-    public void printArtikels(){
+    /*public static void printArtikels(){
+        // in allgemeinen Klassen sollte nichts ausgegeben werden -> dadurch kann diese Methode in jeder Anwendung
+        //  (nicht nur Konsoleanwendung) verwendet werden
+        //      => die Ausgabe der Artikel funktionierte schon vorher richtig
         try {
             String content = Files.readString(Paths.get(artikelDatei));
             System.out.println(content);
         }catch(IOException e){
             System.out.println("Dateiinhalt konnte nicht gelesen werden!");
         }
-    }
+    }*/
 
     /*public String Artikelausgeben(int idnummer){
         String s="";
