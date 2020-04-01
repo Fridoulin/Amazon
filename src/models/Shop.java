@@ -113,10 +113,12 @@ public class Shop implements Serializable{
     }
     public static void checkIfArtikelExists (){
         List<Artikel> ArtikelFromFile;
-        if(Files.notExists(Paths.get(artikelDatei))){
+        final File Artikelfile = new File("./Artikels.bin");
+        if(!Artikelfile.exists()){
             createArtikelDatei();
             writeArtikelsInFile();
             ArtikelFromFile = loadArtikel();
+
             for(int i=0;i<ArtikelFromFile.size();i++){
                 System.out.println(ArtikelFromFile.get(i));
             }
@@ -138,6 +140,7 @@ public class Shop implements Serializable{
         }
         catch (IOException e){
             System.out.println("Serialisierung hat nicht funktioniert");
+            e.printStackTrace();
 
         }
     }
@@ -150,6 +153,7 @@ public class Shop implements Serializable{
         }
 
         catch (IOException e){
+            e.printStackTrace();
             System.out.println("Laden hat nicht funktioniert!");
         }
         catch(ClassNotFoundException e){

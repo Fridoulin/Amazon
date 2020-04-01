@@ -1,6 +1,8 @@
 package models;
 
-public class Freizeitartikel extends Artikel{
+import java.io.Serializable;
+
+public class Freizeitartikel extends Artikel implements Serializable {
 
     private String _zustand;
     private String _material;

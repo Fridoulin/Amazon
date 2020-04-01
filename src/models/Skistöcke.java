@@ -1,6 +1,8 @@
 package models;
 
-public class Skistöcke extends Freizeitartikel {
+import java.io.Serializable;
+
+public class Skistöcke extends Freizeitartikel implements Serializable {
     private double _länge;
     private double _durchmesser;
 
