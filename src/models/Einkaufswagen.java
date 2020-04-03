@@ -1,11 +1,12 @@
 package models;
+import java.io.Serializable;
 import java.util.*;
 import java.util.List;
 
 
 import java.util.ArrayList;
 
-public class Einkaufswagen{
+public class Einkaufswagen implements Serializable {
 
     //private List<Einkaufswagenartikel> _waren = new ArrayList<>();
     private double _versand;

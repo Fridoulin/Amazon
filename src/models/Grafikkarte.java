@@ -1,6 +1,8 @@
 package models;
 
-public class Grafikkarte extends Elektronikartikel{
+import java.io.Serializable;
+
+public class Grafikkarte extends Elektronikartikel implements Serializable {
     public double _taktrate;
     public int _pinanzahl;
 

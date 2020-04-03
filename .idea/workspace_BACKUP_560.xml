@@ -3,15 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd97442-2003-4256-ae76-c5db21ca2e11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/models/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Shop.java" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/src/Programm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Programm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adresse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Kunde.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Kunde.java" afterDir="false" />
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+=======
   <component name="DockManager">
     <window id="1">
       <content type="file-editors">
@@ -149,6 +155,7 @@
       </file>
     </leaf>
   </component>
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
   <component name="FindInProjectRecents">
     <findStrings>
       <find>exi</find>
@@ -164,6 +171,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
+=======
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -185,6 +194,7 @@
       </list>
     </option>
   </component>
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1584" />
     <option name="y" value="-30" />
@@ -195,6 +205,18 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585497402561" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -230,6 +252,7 @@
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585777519470" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Amazon_Vogt" />
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
   </component>
   <component name="RunManager">
     <configuration name="Programm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -260,6 +283,10 @@
     </task>
     <servers />
   </component>
+<<<<<<< HEAD
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+=======
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
@@ -444,6 +471,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
   </component>
   <component name="masterDetails">
     <states>

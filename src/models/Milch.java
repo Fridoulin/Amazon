@@ -1,6 +1,8 @@
 package models;
 
-public class Milch extends Lebensmittel {
+import java.io.Serializable;
+
+public class Milch extends Lebensmittel implements Serializable {
     //fields
     private double _zuckergehalt;
     private double _menge;

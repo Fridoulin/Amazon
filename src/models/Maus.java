@@ -1,6 +1,8 @@
 package models;
 
-public class Maus extends Elektronikartikel{
+import java.io.Serializable;
+
+public class Maus extends Elektronikartikel implements Serializable {
     private boolean _Kabellos;
     private int _Maustasten;
 

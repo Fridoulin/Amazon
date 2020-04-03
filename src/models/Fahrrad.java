@@ -1,6 +1,8 @@
 package models;
 
-public class Fahrrad extends Freizeitartikel {
+import java.io.Serializable;
+
+public class Fahrrad extends Freizeitartikel implements Serializable {
     private boolean _fußantrieb;
     private double _reifgröße;
     private Unterstützung _unterstützung;

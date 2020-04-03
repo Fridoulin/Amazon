@@ -7,6 +7,8 @@
       <change beforePath="$PROJECT_DIR$/src/models/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adresse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Kunde.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Kunde.java" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,7 +193,6 @@
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
-  <component name="ProjectId" id="1ZsewR3mN7dRE8L4ay9nB1kgfGK" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -231,6 +232,18 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585777519470" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Amazon_Vogt" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="Programm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Programm" />
@@ -255,8 +268,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584015001520</updated>
-      <workItem from="1585632472930" duration="1761000" />
-      <workItem from="1585634376532" duration="21000" />
     </task>
     <servers />
   </component>

@@ -111,6 +111,40 @@ public class Shop implements Serializable{
         }
         return foundArtikel;
     }
+<<<<<<< HEAD
+    public static void checkIfArtikelExists (String Dateiname){
+        if(Files.notExists(Paths.get(Dateiname))){
+            // sinnvollen Namen wählen
+            createArtikel();
+            writeArtikelsInFile(alleArtikel, artikelDatei);
+            // ??
+            printContent(Dateiname);
+        }
+        else {
+            loadArtikel(Dateiname);
+            // ??
+            printContent(Dateiname);
+        }
+    }
+    // beide Parameter artikel und dateiname sind nicht notwendig, da ihr innerhalb der Klasse direkt darauf zugreifen könnt
+    //    artikelDatei und _articles
+    public static void writeArtikelsInFile(List<Artikel> artikel, String dateiName){
+            try(FileOutputStream fos = new FileOutputStream(dateiName);
+                ObjectOutputStream oos = new ObjectOutputStream(fos))
+            {
+                oos.writeObject(artikel);
+            }
+            catch (IOException e){
+                System.out.println("Serialisierung hat nicht funktioniert");
+                // wieso laden ?
+                loadArtikel(dateiName);
+            }
+    }
+    // der Parameter filename ist nicht notwendig, da ihr innerhalb der Klasse direkt darauf zugreifen könnt
+    //      artikelDatei
+    public static List<Artikel> loadArtikel(String filename){
+        try(FileInputStream fis = new FileInputStream(filename);
+=======
     public static void checkIfArtikelExists (){
         List<Artikel> ArtikelFromFile;
         final File Artikelfile = new File("./Artikels.bin");
@@ -148,6 +182,7 @@ public class Shop implements Serializable{
     public static List<Artikel> loadArtikel(){
         //deserialize
         try(FileInputStream fis = new FileInputStream(artikelDatei);
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
             ObjectInputStream ois = new ObjectInputStream(fis)) {
             return (List<Artikel>)ois.readObject();
         }
@@ -171,17 +206,29 @@ public class Shop implements Serializable{
         }
     }
     // besseren Methodennamen verwenden
+<<<<<<< HEAD
+    public static void createArtikel(){
+=======
     public static void createArtikelDatei(){
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
         try {
             Files.createFile(Paths.get("Artikels.bin"));
         }catch (IOException e){
             // sinnvolle Fehlermeldung angeben
+<<<<<<< HEAD
+            System.out.println("IOException");
+=======
             System.out.println("Artikels.bin konnte nicht erzeugt werden");
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
         }
     }
 
 
+<<<<<<< HEAD
+    public void printArtikels(){
+=======
     /*public static void printArtikels(){
+>>>>>>> 5316ce10c6cfa604420e89f05a4aeb4ff06109a8
         // in allgemeinen Klassen sollte nichts ausgegeben werden -> dadurch kann diese Methode in jeder Anwendung
         //  (nicht nur Konsoleanwendung) verwendet werden
         //      => die Ausgabe der Artikel funktionierte schon vorher richtig

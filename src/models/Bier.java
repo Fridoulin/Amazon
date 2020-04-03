@@ -1,6 +1,8 @@
 package models;
 
-public class Bier extends Lebensmittel{
+import java.io.Serializable;
+
+public class Bier extends Lebensmittel implements Serializable {
     //fields
     private boolean _weizen;
     private boolean _alkoholfrei;
