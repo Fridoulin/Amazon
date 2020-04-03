@@ -114,15 +114,20 @@ public class Shop {
     }
     public static void checkIfArtikelExists (String Dateiname){
         if(Files.notExists(Paths.get(Dateiname))){
+            // sinnvollen Namen wählen
             createArtikel();
             writeArtikelsInFile(alleArtikel, artikelDatei);
+            // ??
             printContent(Dateiname);
         }
         else {
             loadArtikel(Dateiname);
+            // ??
             printContent(Dateiname);
         }
     }
+    // beide Parameter artikel und dateiname sind nicht notwendig, da ihr innerhalb der Klasse direkt darauf zugreifen könnt
+    //    artikelDatei und _articles
     public static void writeArtikelsInFile(List<Artikel> artikel, String dateiName){
             try(FileOutputStream fos = new FileOutputStream(dateiName);
                 ObjectOutputStream oos = new ObjectOutputStream(fos))
@@ -131,9 +136,12 @@ public class Shop {
             }
             catch (IOException e){
                 System.out.println("Serialisierung hat nicht funktioniert");
+                // wieso laden ?
                 loadArtikel(dateiName);
             }
     }
+    // der Parameter filename ist nicht notwendig, da ihr innerhalb der Klasse direkt darauf zugreifen könnt
+    //      artikelDatei
     public static List<Artikel> loadArtikel(String filename){
         try(FileInputStream fis = new FileInputStream(filename);
             ObjectInputStream ois = new ObjectInputStream(fis)) {
@@ -157,16 +165,21 @@ public class Shop {
             System.out.println("Fehler: Text konnte nicht in der Datei abgeleget werden!");
         }
     }
+    // besseren Methodennamen verwenden
     public static void createArtikel(){
         try {
             Files.createFile(Paths.get("Artikels.bin"));
         }catch (IOException e){
+            // sinnvolle Fehlermeldung angeben
             System.out.println("IOException");
         }
     }
 
 
     public void printArtikels(){
+        // in allgemeinen Klassen sollte nichts ausgegeben werden -> dadurch kann diese Methode in jeder Anwendung
+        //  (nicht nur Konsoleanwendung) verwendet werden
+        //      => die Ausgabe der Artikel funktionierte schon vorher richtig
         try {
             String content = Files.readString(Paths.get(artikelDatei));
             System.out.println(content);
