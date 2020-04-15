@@ -25,8 +25,6 @@ public class Programm implements Serializable {
         Shop shop = new Shop();
         Einkaufswagen ekw = new Einkaufswagen();
         int produktid, anzahl;
-        //1. Benutzer anlegen
-        //2. Switch shop öfffnen, warenkorb öffnen, programm beenden,
         char wahlSuchen;
 
         String ArtikelDatei = "Artikels.bin";
@@ -72,8 +70,6 @@ public class Programm implements Serializable {
                     break;
                 case 'a':
                     Shop.checkIfArtikelExists();
-                    //Funktioniert nicht, habe den Fehler nicht gefunden Exception writeArtikelsInFile "Fehler!!!"
-                    // ausgelöst?
                     break;
                 case 'h':
                     out.println("Welche Produkt-ID wollen Sie hinzufügen?");
@@ -88,7 +84,6 @@ public class Programm implements Serializable {
                     out.println("Wieviele Artikel wollen Sie löschen?");
                     anzahl = reader.nextInt();
                     shop.wareEntfernen(anzahl, produktid);
-                    //shop.wareLöschen(anzahl,produktid);
                     break;
                 case 'b':
                     out.print(shop.getBasket().toString());

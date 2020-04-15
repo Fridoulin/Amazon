@@ -11,7 +11,6 @@ public class Shop implements Serializable{
     private Einkaufswagen _basket = new Einkaufswagen();
     private static List<Artikel> _artikels = createArticlesForShop();
     private List<Artikel> _hinzugefügteArtikel = new ArrayList<>();
-    //private List<Artikel> _waren = new ArrayList<>();
     public List<Artikel> getArtikel() {
         return _artikels;
     }
@@ -162,14 +161,14 @@ public class Shop implements Serializable{
         return null;
     }
 
-    public static void printArtikels(){
+    /*public static void printArtikels(){
         try {
             String content = Files.readString(Paths.get(artikelDatei));
             System.out.println(content);
         }catch (IOException e){
             System.out.println("Fehler: Text konnte nicht in der Datei abgeleget werden!");
         }
-    }
+    }*/
     // besseren Methodennamen verwenden
     public static void createArtikelDatei(){
         try {
