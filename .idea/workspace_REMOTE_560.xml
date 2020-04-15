@@ -4,12 +4,34 @@
     <list default="true" id="bfd97442-2003-4256-ae76-c5db21ca2e11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Programm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Programm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adresse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Kunde.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Kunde.java" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/models/Shop.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="408">
+                    <caret line="122" column="59" lean-forward="true" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-482605939">
@@ -47,36 +69,36 @@
     <session id="1029377381">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3769" />
+          <entry key="java" value="3757" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3769" />
+          <entry key="JAVA" value="3757" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="bin" value="11" />
-          <entry key="java" value="31" />
+          <entry key="java" value="30" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="31" />
+          <entry key="JAVA" value="30" />
           <entry key="PLAIN_TEXT" value="12" />
         </counts>
       </usages-collector>
@@ -87,14 +109,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Programm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="75" column="49" lean-forward="true" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
+            <state relative-caret-position="459">
+              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Kundeneingebenlassen#0;class#Programm#0" />
-                <element signature="method#createKundenDatei#0;class#Programm#0" />
-                <element signature="method#writeKundeInFile#0;class#Programm#0" />
-                <element signature="method#loadKunde#0;class#Programm#0" />
               </folding>
             </state>
           </provider>
@@ -103,14 +121,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Kunde.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="485">
               <caret line="47" column="61" selection-start-line="47" selection-start-column="61" selection-end-line="47" selection-end-column="61" />
               <folding>
-                <element signature="method#getAdressen#0;class#Kunde#0" />
-                <element signature="method#addAdrssen#0;class#Kunde#0" />
-                <element signature="method#removeWaren#0;class#Kunde#0" />
                 <element signature="e#1010#1011#0" expanded="true" />
-                <element signature="e#1078#1079#0" expanded="true" />
+                <element signature="e#1070#1071#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,23 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Adresse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="419">
               <caret line="54" column="145" selection-start-line="54" selection-start-column="145" selection-end-line="54" selection-end-column="145" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Shop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
-              <caret line="170" column="7" selection-start-line="170" selection-start-column="7" selection-end-line="170" selection-end-column="7" />
-              <folding>
-                <element signature="method#findByName#0;class#Shop#0" />
-                <element signature="method#checkIfArtikelExists#0;class#Shop#0" />
-                <element signature="method#writeArtikelsInFile#0;class#Shop#0" />
-                <element signature="method#loadArtikel#0;class#Shop#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -179,21 +179,20 @@
         <option value="$PROJECT_DIR$/src/models/Milch.java" />
         <option value="$PROJECT_DIR$/src/models/Skistöcke.java" />
         <option value="$PROJECT_DIR$/src/models/Unterstützung.java" />
+        <option value="$PROJECT_DIR$/src/models/Shop.java" />
         <option value="$PROJECT_DIR$/src/models/Einkaufswagen.java" />
         <option value="$PROJECT_DIR$/src/models/Kunde.java" />
         <option value="$PROJECT_DIR$/src/models/Adresse.java" />
         <option value="$PROJECT_DIR$/src/Programm.java" />
-        <option value="$PROJECT_DIR$/src/models/Shop.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2170" />
-    <option name="y" value="-16" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="1584" />
+    <option name="y" value="-30" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
-  <component name="ProjectId" id="1ZsewR3mN7dRE8L4ay9nB1kgfGK" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -202,8 +201,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -227,11 +224,25 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585910836305" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585777519470" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Amazon_Vogt" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Programm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -257,15 +268,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584015001520</updated>
-      <workItem from="1585632472930" duration="1761000" />
-      <workItem from="1585634376532" duration="21000" />
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.114072494" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19936034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -274,8 +284,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33077765" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39868566" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3275488" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -403,31 +413,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Programm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="75" column="49" lean-forward="true" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Kundeneingebenlassen#0;class#Programm#0" />
-            <element signature="method#createKundenDatei#0;class#Programm#0" />
-            <element signature="method#writeKundeInFile#0;class#Programm#0" />
-            <element signature="method#loadKunde#0;class#Programm#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Kunde.java">
+    <entry file="file://$PROJECT_DIR$/src/models/Shop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="47" column="61" selection-start-line="47" selection-start-column="61" selection-end-line="47" selection-end-column="61" />
-          <folding>
-            <element signature="method#getAdressen#0;class#Kunde#0" />
-            <element signature="method#addAdrssen#0;class#Kunde#0" />
-            <element signature="method#removeWaren#0;class#Kunde#0" />
-            <element signature="e#1010#1011#0" expanded="true" />
-            <element signature="e#1078#1079#0" expanded="true" />
-          </folding>
+          <caret line="122" column="59" lean-forward="true" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -438,22 +427,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Kunde.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="47" column="61" selection-start-line="47" selection-start-column="61" selection-end-line="47" selection-end-column="61" />
+          <folding>
+            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Adresse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
+        <state relative-caret-position="419">
           <caret line="54" column="145" selection-start-line="54" selection-start-column="145" selection-end-line="54" selection-end-column="145" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Shop.java">
+    <entry file="file://$PROJECT_DIR$/src/Programm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="170" column="7" selection-start-line="170" selection-start-column="7" selection-end-line="170" selection-end-column="7" />
+        <state relative-caret-position="459">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
           <folding>
-            <element signature="method#findByName#0;class#Shop#0" />
-            <element signature="method#checkIfArtikelExists#0;class#Shop#0" />
-            <element signature="method#writeArtikelsInFile#0;class#Shop#0" />
-            <element signature="method#loadArtikel#0;class#Shop#0" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
