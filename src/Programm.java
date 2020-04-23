@@ -10,32 +10,55 @@ import static java.lang.System.*;
 
 public class Programm implements Serializable {
 
-
+    static Shop shop = new Shop();
     static Kunde kunde = new Kunde();
     static Adresse KundenAdresse = new Adresse();
     static Kunde KundeFromFile;
     static Scanner reader = new Scanner(System.in);
     public static void main(String[] args) {
-        try {
-            Files.delete(Paths.get("Kunde.bin"));
-        }catch (IOException e){
-            System.out.println("Datei Kunde.bin hat nicht existiert");
-        }
+
         char wahl = 'a';
-        Shop shop = new Shop();
+
         Einkaufswagen ekw = new Einkaufswagen();
         int produktid, anzahl;
         char wahlSuchen;
 
         String ArtikelDatei = "Artikels.bin";
 
+        String nachname;
+
 
         List<Artikel> gefundeneArtikel;
         String _artikelName;
+        String accountjaodernein;
 
-        Kundeneingebenlassen();
-        createKundenDatei();
-        writeKundeInFile();
+        System.out.println("Haben Sie schon einen Account?[j,n]");
+        accountjaodernein = reader.nextLine();
+        if(accountjaodernein.equals("j")){
+            System.out.println("Nachname: ");
+            nachname=reader.nextLine();
+            File temp1 = new File(nachname + ".bin");
+            if(temp1.exists()){
+                kunde.set_nachname(nachname);
+            }
+        else{
+                System.out.println("Falsche Eingabe");
+                System.exit(0);
+            }
+        }
+        else if (accountjaodernein.equals("n")){
+            Kundeneingebenlassen();
+            final File KundenFile = new File(kunde.get_nachname() + ".bin");
+            if(!KundenFile.exists()){
+                createEinkaufswagenDatei();
+                createKundenDatei();
+                writeKundeInFile();
+            }
+        }
+        else{
+            System.out.println("Falsche Eingabe!!!");
+            System.exit(0);
+        }
 
 
         boolean bestellt=false;
@@ -77,6 +100,7 @@ public class Programm implements Serializable {
                     out.println("Wieviele Artikel wollen Sie hinzufügen?");
                     anzahl = reader.nextInt();
                     shop.wareZuEinkaufswagen(anzahl, produktid);
+                    writeEinkaufswageninFile();
                     break;
                 case 'l':
                     out.println("Das Produkt mit welcher Produkt-ID wollen Sie löschen?");
@@ -86,7 +110,8 @@ public class Programm implements Serializable {
                     shop.wareEntfernen(anzahl, produktid);
                     break;
                 case 'b':
-                    out.print(shop.getBasket().toString());
+                    //out.print(shop.getBasket().toString());
+                    System.out.println(loadekw());
                     break;
                 case'k':
                     KundeFromFile = loadKunde();
@@ -97,21 +122,29 @@ public class Programm implements Serializable {
                     KundeFromFile = loadKunde();
                     System.out.println(KundeFromFile.toString());
                     System.out.println(KundeFromFile.getAdressen());
+                    System.out.println(loadekw());
                     String entscheidung;
-                    out.print(shop.getBasket().toString());
+                    //out.print(shop.getBasket().toString());
                     out.println("Sind Sie sicher, dass sie bestellen wollen?[j,n]");
                     entscheidung = reader.next();
                     if (entscheidung.toLowerCase().equals("j")) {
                         out.println("Bestellung erfolgreich aufgegeben!");
                         bestellt=true;
+                        try {
+                            Files.delete(Paths.get(kunde.get_nachname() + "ekw.bin"));
+                        }
+                        catch (IOException e){
+                            System.out.println(kunde.get_nachname() + ".bin konnte nicht gelöscht werden!");
+                            e.printStackTrace();
+                        }
 
                     } else {
                         out.println("Bestellung nicht aufgegeben!");
 
                     }
-
-
                     break;
+
+
             }
         } while (wahl != 'e'&&bestellt==false);
         out.println("Programm beendet!");
@@ -134,14 +167,14 @@ public class Programm implements Serializable {
     }
     public static void createKundenDatei(){
         try {
-            Files.createFile(Paths.get("Kunde.bin"));
+            Files.createFile(Paths.get(kunde.get_nachname() + ".bin"));
         }catch (IOException e){
-            System.out.println("Kunde.bin konnte nicht erzeugt werden");
+            System.out.println(kunde.get_nachname() + ".bin konnte nicht erzeugt werden");
         }
     }
     public static void writeKundeInFile(){
         //Serialize
-        try(FileOutputStream fos = new FileOutputStream("Kunde.bin");
+        try(FileOutputStream fos = new FileOutputStream(kunde.get_nachname() + ".bin");
             ObjectOutputStream oos = new ObjectOutputStream(fos))
         {
             oos.writeObject(kunde);
@@ -154,10 +187,9 @@ public class Programm implements Serializable {
     }
     public static Kunde loadKunde(){
         //Deserialize
-        try(FileInputStream fis = new FileInputStream("Kunde.bin");
+        try(FileInputStream fis = new FileInputStream(kunde.get_nachname() + ".bin");
             ObjectInputStream ois = new ObjectInputStream(fis))
         {
-
             return (Kunde)ois.readObject();
         }
         catch (IOException e){
@@ -168,4 +200,40 @@ public class Programm implements Serializable {
         }
         return null;
     }
-}
+    public static void createEinkaufswagenDatei(){
+        try {
+            Files.createFile(Paths.get(kunde.get_nachname() + "ekw"+".bin"));
+        }catch (IOException e){
+            System.out.println(kunde.get_nachname() + "ekw" + ".bin konnte nicht erzeugt werden");
+        }
+    }
+    public static void writeEinkaufswageninFile(){
+        //Serialize
+        try(FileOutputStream fos = new FileOutputStream(kunde.get_nachname() + "ekw" + ".bin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos))
+        {
+            oos.writeObject(shop.getBasket());
+        }
+        catch (IOException e){
+            System.out.println("Serialisierung hat nicht funktioniert");
+            e.printStackTrace();
+
+        }
+    }
+    public static Einkaufswagen loadekw(){
+        //Deserialize
+        try(FileInputStream fis = new FileInputStream(kunde.get_nachname() + "ekw"+".bin");
+            ObjectInputStream ois = new ObjectInputStream(fis))
+        {
+            return (Einkaufswagen) ois.readObject();
+        }
+        catch (IOException e){
+            System.out.println("Kein Einkaufswagen vorhanden");
+        }
+        catch (ClassNotFoundException e){
+            System.out.println("Klasse Person oder Address existiert nicht");
+        }
+        return null;
+    }
+    }
+

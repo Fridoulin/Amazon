@@ -1,6 +1,8 @@
 package models;
 
-public class Elektronikartikel extends Artikel {
+import java.io.Serializable;
+
+public class Elektronikartikel extends Artikel implements Serializable {
     private boolean _RGBTauglich;
     private double _Stromverbrauch;
 

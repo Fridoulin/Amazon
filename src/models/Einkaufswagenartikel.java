@@ -1,6 +1,8 @@
 package models;
 
-public class Einkaufswagenartikel{
+import java.io.Serializable;
+
+public class Einkaufswagenartikel implements Serializable {
     private Artikel _artikel;
     private int _anzahl;
 
